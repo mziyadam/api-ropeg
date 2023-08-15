@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DataSource } from 'typeorm';
 import { PegawaiModule } from './pegawai/pegawai.module';
+import { MasterModule } from './master/master.module';
 
 @Module({
   imports: [
@@ -20,7 +21,8 @@ import { PegawaiModule } from './pegawai/pegawai.module';
       }
       //synchronize: true,//only for development
     }),
-    PegawaiModule
+    PegawaiModule,
+    MasterModule
   ],
   controllers: [AppController],
   providers: [AppService],
