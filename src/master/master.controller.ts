@@ -2,31 +2,35 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { MasterService } from './master.service';
 import { CreateMasterDto } from './dto/create-master.dto';
 import { UpdateMasterDto } from './dto/update-master.dto';
-import { ApiHeader, ApiTags } from '@nestjs/swagger';
+import { ApiBasicAuth, ApiHeader, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('master')
 @Controller('master')
 export class MasterController {
   constructor(private readonly masterService: MasterService) {}
 
+  @ApiBasicAuth()
   @ApiHeader({name:'host',description:'api-ropeg',required:true})
   @Get('satker')
   getSatker() {
     return this.masterService.getSatker();
   }
   
+  @ApiBasicAuth()
   @ApiHeader({name:'host',description:'api-ropeg',required:true})
   @Get('jabatan')
   getJabatan() {
     return this.masterService.getJabatan();
   }
   
+  @ApiBasicAuth()
   @ApiHeader({name:'host',description:'api-ropeg',required:true})
   @Get('level_jabatan')
   getLevelJabatan() {
     return this.masterService.getLevelJabatan();
   }
   
+  @ApiBasicAuth()
   @ApiHeader({name:'host',description:'api-ropeg',required:true})
   @Get('pangkat')
   getPangkat() {
