@@ -2,7 +2,7 @@ import { Controller, Get, Post, Query, Body, Patch, Param, Delete } from '@nestj
 import { PegawaiService } from './pegawai.service';
 import { CreatePegawaiDto } from './dto/create-pegawai.dto';
 import { UpdatePegawaiDto } from './dto/update-pegawai.dto';
-import { ApiParam, ApiProperty, ApiQuery, ApiTags } from '@nestjs/swagger';
+import { ApiHeader, ApiParam, ApiProperty, ApiQuery, ApiTags } from '@nestjs/swagger';
 
 @Controller('pegawai')
 @ApiTags('master')
@@ -15,6 +15,7 @@ export class PegawaiController {
   // }
 
   @Get()
+  @ApiHeader({name:'host',description:'api-ropeg',required:true})
   @ApiQuery({name:'limit',type:'number',required:false})
   @ApiQuery({name:'page',type:'string',required:false})
   @ApiQuery({name:'satker',description:"kode satker",type:'string',required:false})
@@ -22,18 +23,21 @@ export class PegawaiController {
     return this.pegawaiService.findAll(query);
   }
 
+  @ApiHeader({name:'host',description:'api-ropeg',required:true})
   @ApiParam({name:'nip',type:'number'})
   @Get(':nip')
   findOne(@Param('nip') nip: string) {
     return this.pegawaiService.findOne(nip);
   }
   
+  @ApiHeader({name:'host',description:'api-ropeg',required:true})
   @ApiParam({name:'nip',type:'number'})
   @Get('pendidikan/:nip')
   findOnePendidikan(@Param('nip') nip: string) {
     return this.pegawaiService.findOnePendidikan(nip);
   }
 
+  @ApiHeader({name:'host',description:'api-ropeg',required:true})
   @ApiParam({name:'nip',type:'number'})
   @Get('pekerjaan/:nip')
   findOnePekerjaan(@Param('nip') nip: string) {
