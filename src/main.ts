@@ -6,8 +6,8 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const config = new DocumentBuilder()
     .setTitle('API Ropeg')
-    .setDescription('Jangan lupa memasukkan Authorization!')
-    .setVersion('1.0')
+    .setDescription('Jangan lupa memasukkan Authorization! Kalau error 404 saat tryout bisa run curl-nya di <a href="https://git-scm.com/downloads">gitbash</a>')
+    .setVersion('2.0')
     .addBasicAuth()
     // .addTag('cats')
     .build();
