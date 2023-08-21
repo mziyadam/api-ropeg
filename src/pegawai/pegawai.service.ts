@@ -21,6 +21,34 @@ export class PegawaiService {
     const take = query.limit || 10;
     const page = query.page || 1;
     const skip = (page - 1) * take;
+    if(kode_satker_awal=='0000'){
+      if (satker != null) {
+          return this.pegawaiRepository.find({
+            order: {
+              NIP: "ASC",
+            },
+            where: [
+              {
+                KODE_SATUAN_KERJA: satker
+              }
+              // ,{
+              //   KODE_SATUAN_KERJA:Like(kode_satker_awal+'%')
+              // }
+            ],
+            skip: skip,
+            take: take
+          });
+      }
+      else
+        return this.pegawaiRepository.find({
+          order: {
+            NIP: "ASC",
+          },
+          skip: skip,
+          take: take
+        });
+    }else{
+      
     if (satker != null) {
       if (satker.substring(0, 4) == kode_satker_awal)
         return this.pegawaiRepository.find({
@@ -52,12 +80,20 @@ export class PegawaiService {
           KODE_SATUAN_KERJA: Like(kode_satker_awal + '%')
         }
       });
+    }
   }
 
   findOne(nip: string, kode_satker_awal: string): Promise<Pegawai> {
-    return this.pegawaiRepository.findOne({
-      where: { NIP_BARU: Equal(nip), KODE_SATUAN_KERJA: Like(kode_satker_awal + '%') }
-    });
+    if(kode_satker_awal=='0000'){
+      return this.pegawaiRepository.findOne({
+        where: { NIP_BARU: Equal(nip) }
+      });
+    }else{
+      return this.pegawaiRepository.findOne({
+        where: { NIP_BARU: Equal(nip), KODE_SATUAN_KERJA: Like(kode_satker_awal + '%') }
+      });
+
+    }
   }
 
   async findOnePendidikan(nip: string, kode_satker_awal: string): Promise<any[]> {
