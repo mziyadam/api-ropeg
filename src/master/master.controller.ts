@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { MasterService } from './master.service';
 import { CreateMasterDto } from './dto/create-master.dto';
 import { UpdateMasterDto } from './dto/update-master.dto';
-import { ApiBasicAuth, ApiHeader, ApiTags } from '@nestjs/swagger';
+import { ApiBasicAuth, ApiHeader, ApiParam, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('master')
 @Controller('master')
@@ -35,6 +35,14 @@ export class MasterController {
   @Get('pangkat')
   getPangkat() {
     return this.masterService.getPangkat();
+  }
+  
+  @ApiBasicAuth()
+  @ApiHeader({name:'host',description:'api-ropeg',required:true})
+  @ApiParam({name:'query',type:'string'})
+  @Get('cari_satker/:query')
+  findOneSatker(@Param('query') query: string) {
+    return this.masterService.findOneSatker(query);
   }
   // @Post()
   // create(@Body() createMasterDto: CreateMasterDto) {

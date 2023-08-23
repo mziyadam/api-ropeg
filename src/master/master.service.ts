@@ -28,6 +28,12 @@ export class MasterService {
     return await this.pegawaiRepository.query("select * from tm_pangkat");
   }
   
+  
+  async findOneSatker(query: string): Promise<any[]> {
+    // return [kode_satker_awal];
+    return await this.pegawaiRepository.query("select top 25 KODE_SATUAN_KERJA,SATUAN_KERJA from TM_SATUAN_KERJA where SATUAN_KERJA like '%'+@0+'%'", [query]);
+  }
+  
   create(createMasterDto: CreateMasterDto) {
     return 'This action adds a new master';
   }

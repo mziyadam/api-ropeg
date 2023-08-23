@@ -100,7 +100,7 @@ export class PegawaiService {
     // return [kode_satker_awal];
     return await this.pegawaiRepository.query("exec get_pendidikan_by_nip_baru @0,@1", [nip, kode_satker_awal]);
   }
-
+//
   async findOnePekerjaan(nip: string, kode_satker_awal: string): Promise<any> {
     const pangkat = await this.pegawaiRepository.query("exec get_pangkat_by_nip_baru @0,@1", [nip, kode_satker_awal]);
     const jabatan = await this.pegawaiRepository.query("exec get_jabatan_by_nip_baru @0,@1", [nip, kode_satker_awal]);

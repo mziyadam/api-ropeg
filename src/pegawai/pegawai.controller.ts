@@ -6,7 +6,7 @@ import { ApiBasicAuth, ApiHeader, ApiParam, ApiProperty, ApiQuery, ApiTags } fro
 import { AuthGuard } from '@nestjs/passport';
 
 @Controller('pegawai')
-@ApiTags('master')
+@ApiTags('pegawai')
 export class PegawaiController {
   constructor(private readonly pegawaiService: PegawaiService) {}
 
