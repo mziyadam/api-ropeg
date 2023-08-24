@@ -12,8 +12,8 @@ async function bootstrap() {
     // .addTag('cats')
     .build();
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('docs', app, document);
-  
+  // SwaggerModule.setup('docs', app, document);
+  SwaggerModule.setup('api', app, document);
   await app.listen(3000);
 }
 bootstrap();
