@@ -4,7 +4,7 @@ import { CreateMasterDto } from './dto/create-master.dto';
 import { UpdateMasterDto } from './dto/update-master.dto';
 import { ApiBasicAuth, ApiHeader, ApiParam, ApiTags } from '@nestjs/swagger';
 
-@ApiTags('master')
+@ApiTags('api/master')
 @Controller('master')
 export class MasterController {
   constructor(private readonly masterService: MasterService) {}

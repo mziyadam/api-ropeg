@@ -5,7 +5,7 @@ import { UpdatePegawaiDto } from './dto/update-pegawai.dto';
 import { ApiBasicAuth, ApiHeader, ApiParam, ApiProperty, ApiQuery, ApiTags } from '@nestjs/swagger';
 import { AuthGuard } from '@nestjs/passport';
 
-@Controller('pegawai')
+@Controller('api/pegawai')
 @ApiTags('pegawai')
 export class PegawaiController {
   constructor(private readonly pegawaiService: PegawaiService) {}
