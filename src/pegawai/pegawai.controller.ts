@@ -17,7 +17,7 @@ export class PegawaiController {
 
   @ApiBasicAuth()
   @Get()
-  //@ApiHeader({name:'host',description:'api-ropeg',required:true})
+  @ApiHeader({name:'host',description:'api-ropeg',required:true})
   @ApiQuery({name:'limit',type:'number',required:false})
   @ApiQuery({name:'page',type:'string',required:false})
   @ApiQuery({name:'satker',description:"kode satker",type:'string',required:false})
@@ -27,7 +27,7 @@ export class PegawaiController {
   }
 
   @ApiBasicAuth()
-  //@ApiHeader({name:'host',description:'api-ropeg',required:true})
+  @ApiHeader({name:'host',description:'api-ropeg',required:true})
   @ApiParam({name:'nip',type:'number'})
   @Get(':nip')
   @UseGuards(AuthGuard('basic'))
@@ -36,7 +36,7 @@ export class PegawaiController {
   }
   
   @ApiBasicAuth()
-  //@ApiHeader({name:'host',description:'api-ropeg',required:true})
+  @ApiHeader({name:'host',description:'api-ropeg',required:true})
   @ApiParam({name:'nip',type:'number'})
   @Get('pendidikan/:nip')
   @UseGuards(AuthGuard('basic'))
@@ -45,7 +45,7 @@ export class PegawaiController {
   }
 
   @ApiBasicAuth()
-  //@ApiHeader({name:'host',description:'api-ropeg',required:true})
+  @ApiHeader({name:'host',description:'api-ropeg',required:true})
   @ApiParam({name:'nip',type:'number'})
   @Get('pekerjaan/:nip')
   @UseGuards(AuthGuard('basic'))
