@@ -10,35 +10,35 @@ export class MasterController {
   constructor(private readonly masterService: MasterService) {}
 
   @ApiBasicAuth()
-  @ApiHeader({name:'host',description:'api-ropeg',required:true})
+  //@ApiHeader({name:'host',description:'api-ropeg',required:true})
   @Get('satker')
   getSatker() {
     return this.masterService.getSatker();
   }
   
   @ApiBasicAuth()
-  @ApiHeader({name:'host',description:'api-ropeg',required:true})
+  //@ApiHeader({name:'host',description:'api-ropeg',required:true})
   @Get('jabatan')
   getJabatan() {
     return this.masterService.getJabatan();
   }
   
   @ApiBasicAuth()
-  @ApiHeader({name:'host',description:'api-ropeg',required:true})
+  //@ApiHeader({name:'host',description:'api-ropeg',required:true})
   @Get('level_jabatan')
   getLevelJabatan() {
     return this.masterService.getLevelJabatan();
   }
   
   @ApiBasicAuth()
-  @ApiHeader({name:'host',description:'api-ropeg',required:true})
+  //@ApiHeader({name:'host',description:'api-ropeg',required:true})
   @Get('pangkat')
   getPangkat() {
     return this.masterService.getPangkat();
   }
   
   @ApiBasicAuth()
-  @ApiHeader({name:'host',description:'api-ropeg',required:true})
+  //@ApiHeader({name:'host',description:'api-ropeg',required:true})
   @ApiParam({name:'query',type:'string'})
   @Get('cari_satker/:query')
   findOneSatker(@Param('query') query: string) {
